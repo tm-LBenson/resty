@@ -1,7 +1,5 @@
 /** @format */
 
-import React from 'react';
-
 import './form.scss';
 
 function Form({ handleApiCall }) {

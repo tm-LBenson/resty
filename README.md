@@ -12,6 +12,14 @@
 
 ![dataflow UML](https://user-images.githubusercontent.com/105423307/210279444-4703151f-9add-4cf9-916e-79a2bcc1643d.png)
 
+## Feature 1 Application Setup
+
+- [x] Basic React Application
+- [x] Scaffolding
+- [x] Basic State
+- [x] Rendering
+- [x] Testing
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

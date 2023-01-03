@@ -23,6 +23,9 @@ form {
         &.active {
           background: #fff;
         }
+        &.selected{
+          background: rgba(255, 0, 0, 0.616);
+        }
       }
     }
   }

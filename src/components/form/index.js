@@ -1,15 +1,17 @@
 /** @format */
 
+import { useState } from 'react';
 import './form.scss';
 
-function Form({ handleApiCall }) {
-  const handleSubmit = (e) => {
+ function Form({ handleApiCall }) {
+  const [method, setMethod] = useState('get')
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
       method: 'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
+      url: e.target.url.value,
     };
-    handleApiCall(formData);
+    await handleApiCall(formData);
   };
 
   return (
@@ -23,11 +25,11 @@ function Form({ handleApiCall }) {
           />
           <button type='submit'>GO!</button>
         </label>
-        <label className='methods'>
-          <span id='get'>GET</span>
-          <span id='post'>POST</span>
-          <span id='put'>PUT</span>
-          <span id='delete'>DELETE</span>
+        <label onClick={(e)=>{setMethod(e.target.id)}} className='methods'>
+          <span className={method === 'get' ? 'selected' : 'not'} id='get'>GET</span>
+          <span className={method === 'post' ? 'selected' : 'not'} id='post'>POST</span>
+          <span className={method === 'put' ? 'selected' : 'not'} id='put'>PUT</span>
+          <span className={method === 'delete' ? 'selected' : 'not'} id='delete'>DELETE</span>
         </label>
       </form>
     </>

@@ -1,9 +1,21 @@
 /** @format */
+import JsonFormatter from 'react-json-formatter'
+
+const jsonStyle = {
+  propertyStyle: { color: 'red' },
+  stringStyle: { color: 'green' },
+  numberStyle: { color: 'darkorange' }
+}
 
 function Results({ data }) {
+  console.log(data)
+  const results = data ?
+   <JsonFormatter json={JSON.stringify(data)} tabWith={4} jsonStyle={jsonStyle} />
+  : null
+  
   return (
     <section>
-      <pre>{data ? JSON.stringify(data, undefined, 2) : null}</pre>
+       <pre>{results}</pre>
     </section>
   );
 }

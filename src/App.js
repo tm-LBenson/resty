@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from 'react';
 
 import './app.scss';
@@ -11,31 +13,33 @@ import Results from './components/results';
 import axios from 'axios';
 
 function App() {
-
   const [state, setData] = useState({
     data: null,
-    requestParams: {}
+    requestParams: {},
   });
-  
+
   const callApi = async (requestParams) => {
-    
-    const results = await axios.get(requestParams.url)
- 
- 
-    setData({data: results.data, requestParams});
-  }
+    const results = requestParams.url
+      ? await axios.get(requestParams.url)
+      : null;
 
-    return (
-      <>
-        <Header />
-        <div>Request Method: {state.requestParams.method}</div>
-        <div>URL: {state.requestParams.url}</div>
-        <Form handleApiCall={callApi} />
-        <Results data={state.data} />
-        <Footer />
-      </>
-    );
-  }
+    if (results.status === 200)
+      setData({
+        data: results.data,
+        requestParams,
+      });
+  };
 
+  return (
+    <>
+      <Header />
+      <div>Request Method: {state.requestParams.method}</div>
+      <div>URL: {state.requestParams.url}</div>
+      <Form handleApiCall={callApi} />
+      <Results data={state.data} />
+      <Footer />
+    </>
+  );
+}
 
 export default App;

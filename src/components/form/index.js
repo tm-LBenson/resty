@@ -8,7 +8,7 @@ function Form({ handleApiCall }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
-      method: 'GET',
+      method: method,
       url: e.target.url.value,
     };
     await handleApiCall(formData);
@@ -24,6 +24,7 @@ function Form({ handleApiCall }) {
             name="url"
             type="text"
           />
+
           <button data-testid="form-button" type="submit">GO!</button>
         </label>
         <label
@@ -56,6 +57,9 @@ function Form({ handleApiCall }) {
           >
             DELETE
           </span>
+        </label>
+        <label>
+          <textarea/>
         </label>
       </form>
     </>

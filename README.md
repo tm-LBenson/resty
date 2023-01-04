@@ -30,7 +30,7 @@ Creating an application to perform RESTful actions based on a users choice. The 
 
 ## Deployed
 
-[Link to Netlify](https://app.netlify.com/sites/tiny-malabi-b65515/overview)
+[Link to Netlify](https://tiny-malabi-b65515.netlify.app)
 
 ## Dataflow
 

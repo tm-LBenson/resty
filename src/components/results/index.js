@@ -1,21 +1,25 @@
 /** @format */
-import JsonFormatter from 'react-json-formatter'
+import JsonFormatter from 'react-json-formatter';
 
 const jsonStyle = {
   propertyStyle: { color: 'red' },
   stringStyle: { color: 'green' },
-  numberStyle: { color: 'darkorange' }
-}
+  numberStyle: { color: 'darkorange' },
+};
 
 function Results({ data }) {
-  console.log(data)
-  const results = data ?
-   <JsonFormatter json={JSON.stringify(data)} tabWith={4} jsonStyle={jsonStyle} />
-  : null
-  
+  console.log(JSON.stringify(data));
+  const results = data ? (
+    <JsonFormatter
+      json={JSON.stringify(data)}
+      tabWith={4}
+      jsonStyle={jsonStyle}
+    />
+  ) : null;
+
   return (
-    <section>
-       <pre>{results}</pre>
+    <section data-testid="results-element">
+      <pre>{results}</pre>
     </section>
   );
 }

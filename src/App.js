@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -19,7 +19,7 @@ function App() {
       const results = requestParams.url
         ? await fetchApi(requestParams.url)
         : null;
-      console.log(results, 'fetch');
+      
       setData({
         data: results,
         requestParams,
@@ -33,6 +33,12 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (state.requestParams) {
+      callApi(state.requestParams);
+    }
+  }, [state.requestParams]);
+
   return (
     <>
       <Header data-testid="header" />
@@ -40,11 +46,13 @@ function App() {
         Request Method: {state.requestParams.method}
       </div>
       <div data-testid="request-url">URL: {state.requestParams.url}</div>
-      <Form
-        data-testid="form"
-        handleApiCall={callApi}
-      />
-      <Results data={state.data} />
+      <main>
+        <Form
+          data-testid="form"
+          handleApiCall={callApi}
+        />
+        <Results data={state.data} />
+      </main>
       <Footer data-testid="footer" />
     </>
   );

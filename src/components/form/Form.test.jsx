@@ -23,7 +23,7 @@ describe('Form', () => {
     });
 
     expect(handleApiCall).toHaveBeenCalledWith({
-      method: 'GET',
+      method: 'get',
       url: 'https://example.com',
     });
   });

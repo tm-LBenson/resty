@@ -1,6 +1,27 @@
-<!-- @format -->
+# Lab-27-d49
 
-# Lab-26-d49
+## Project: RESTy
+
+## Problem Domain
+
+Creating an application to perform RESTful actions based on a users choice. The application will be build in TDD style, and use scss for styling. 
+
+## Feature 2 Application Setup
+
+- [x] Turn App into class component
+- [x] write tests for each component
+- [x] Turn state into useState hook
+- [x] Set up API call using fetch
+- [x] Testing
+
+
+## Dataflow
+
+![image](https://user-images.githubusercontent.com/105423307/210473276-5ee55ea7-d47a-4ab3-b1b8-478f4f2e57bf.png)
+
+
+---
+## Lab-26-d49
 
 ## Resty
 

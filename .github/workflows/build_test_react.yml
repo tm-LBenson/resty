@@ -31,5 +31,4 @@ jobs:
       - name: npm i, build and test
         run: |
           npm i
-          # npm run predeploy --if-present
           npm test

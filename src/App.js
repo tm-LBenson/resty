@@ -1,16 +1,12 @@
 /** @format */
 
 import React, { useState } from 'react';
-
 import './app.scss';
-
-// Let's talk about using index.js and some other name in the component folder
-// There's pros and cons for each way of doing this ...
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
-import axios from 'axios';
+import fetchApi from './fetchApi';
 
 function App() {
   const [state, setData] = useState({
@@ -19,25 +15,37 @@ function App() {
   });
 
   const callApi = async (requestParams) => {
-    const results = requestParams.url
-      ? await axios.get(requestParams.url)
-      : null;
-
-    if (results.status === 200)
+    try {
+      const results = requestParams.url
+        ? await fetchApi(requestParams.url)
+        : null;
+      console.log(results, 'fetch');
       setData({
-        data: results.data,
+        data: results,
         requestParams,
       });
+    } catch (e) {
+      console.log(e);
+      setData({
+        data: 'Loading',
+        requestParams,
+      });
+    }
   };
 
   return (
     <>
-      <Header />
-      <div>Request Method: {state.requestParams.method}</div>
-      <div>URL: {state.requestParams.url}</div>
-      <Form handleApiCall={callApi} />
+      <Header data-testid="header" />
+      <div data-testid="request-method">
+        Request Method: {state.requestParams.method}
+      </div>
+      <div data-testid="request-url">URL: {state.requestParams.url}</div>
+      <Form
+        data-testid="form"
+        handleApiCall={callApi}
+      />
       <Results data={state.data} />
-      <Footer />
+      <Footer data-testid="footer" />
     </>
   );
 }

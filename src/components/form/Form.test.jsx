@@ -12,19 +12,19 @@ describe('Form', () => {
 
     const input = screen.getByTestId('form-input');
 
-    input.value = 'https://example.com';
+    input.value = 'https://pokeapi.co/api/v2/pokemon';
     fireEvent.submit(screen.getByTestId('form-button'), {
       preventDefault: jest.fn(),
       target: {
         url: {
-          value: 'https://example.com',
+          value: 'https://pokeapi.co/api/v2/pokemon',
         },
       },
     });
 
     expect(handleApiCall).toHaveBeenCalledWith({
       method: 'get',
-      url: 'https://example.com',
+      url: 'https://pokeapi.co/api/v2/pokemon',
     });
   });
 });

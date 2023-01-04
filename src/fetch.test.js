@@ -45,11 +45,12 @@ describe('fetchApi', () => {
       .fn()
       .mockImplementation(() => Promise.reject(new Error('request failed')));
     const url = 'https://my-api.com/get-data';
-
+    let error;
     try {
       await fetchApi(url);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      error = err;
     }
+    expect(error).toEqual(new Error('request failed'));
   });
 });

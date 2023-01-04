@@ -2,7 +2,7 @@
   "name": "resty",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/tm-LBenson/resty",
+
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,11 +18,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
+
     "build": "react-scripts build",
     "test": "react-scripts test --verbose --coverage",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -b main -d build"
+
   },
   "eslintConfig": {
     "extends": [

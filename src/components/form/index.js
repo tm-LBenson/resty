@@ -10,7 +10,7 @@ function Form({ handleApiCall }) {
     const formData = {
       method: method,
       url: e.target.url.value,
-      body: e.target.json.value,
+      body: e.target?.json?.value,
     };
     await handleApiCall(formData);
   };

@@ -1,10 +1,37 @@
+# Lab-28-d49
+
+## Project: RESTy
+
+## Problem Domain
+
+`<App />` has an effect hook that's looking for changes to the request variable in state, and in response, runs the API request with the new request options from state.
+
+## Feature 3 Application Setup
+
+- [x] Add useEffect to App 
+- [x] write tests for each component
+- [x] Add new styling to application
+- [x] Set up dynamic API call using fetch
+- [x] Testing
+
+## Deployed
+
+[Link to Netlify](https://28resty-d49.netlify.app)
+
+## Dataflow
+
+![image](https://user-images.githubusercontent.com/105423307/210675199-3788d36c-fe53-4cdc-9f35-6f823fc50e6f.png)
+
+
+---
+
 # Lab-27-d49
 
 ## Project: RESTy
 
 ## Problem Domain
 
-Creating an application to perform RESTful actions based on a users choice. The application will be build in TDD style, and use scss for styling. 
+Creating an application to perform RESTful actions based on a users choice. The application will be build in TDD style, and use scss for styling.
 
 ## Feature 2 Application Setup
 
@@ -22,8 +49,8 @@ Creating an application to perform RESTful actions based on a users choice. The 
 
 ![image](https://user-images.githubusercontent.com/105423307/210473276-5ee55ea7-d47a-4ab3-b1b8-478f4f2e57bf.png)
 
-
 ---
+
 ## Lab-26-d49
 
 ## Resty
@@ -43,7 +70,6 @@ Creating an application to perform RESTful actions based on a users choice. The 
 - [x] Basic State
 - [x] Rendering
 - [x] Testing
-
 
 ### `npm start`
 

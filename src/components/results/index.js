@@ -8,7 +8,6 @@ const jsonStyle = {
 };
 
 function Results({ data }) {
-  console.log(JSON.stringify(data));
   const results = data ? (
     <JsonFormatter
       json={JSON.stringify(data)}

@@ -6,25 +6,25 @@ import Form from './index';
 
 describe('Form', () => {
   it('submits the form and calls the handleApiCall function', async () => {
-    const handleApiCall = jest.fn();
+    const setDataApp = jest.fn();
 
-    render(<Form handleApiCall={handleApiCall} />);
+    render(<Form setDataApp={setDataApp} />);
 
     const input = screen.getByTestId('form-input');
 
-    input.value = 'https://example.com';
+    input.value = 'https://pokeapi.co/api/v2/pokemon';
     fireEvent.submit(screen.getByTestId('form-button'), {
       preventDefault: jest.fn(),
       target: {
         url: {
-          value: 'https://example.com',
+          value: 'https://pokeapi.co/api/v2/pokemon',
         },
       },
     });
 
-    expect(handleApiCall).toHaveBeenCalledWith({
+    expect(setDataApp).toHaveBeenCalledWith({
       method: 'get',
-      url: 'https://example.com',
+      url: 'https://pokeapi.co/api/v2/pokemon',
     });
   });
 });

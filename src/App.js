@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -9,42 +9,40 @@ import Results from './components/results';
 import fetchApi from './fetchApi';
 
 function App() {
-  const [state, setData] = useState({
-    data: null,
-    requestParams: {},
-  });
+  const [params, setParams] = useState({});
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const callApi = async (requestParams) => {
+      try {
+        const results = requestParams.url
+          ? await fetchApi(requestParams.url)
+          : null;
 
-  const callApi = async (requestParams) => {
-    try {
-      const results = requestParams.url
-        ? await fetchApi(requestParams.url)
-        : null;
-      console.log(results, 'fetch');
-      setData({
-        data: results,
-        requestParams,
-      });
-    } catch (e) {
-      console.log(e);
-      setData({
-        data: 'Loading',
-        requestParams,
-      });
+        setData({
+          data: results,
+        });
+      } catch (e) {
+        console.log(e);
+        setData('Loading');
+      }
+    };
+    if (params) {
+      callApi(params);
     }
-  };
+  }, [params]);
 
   return (
     <>
       <Header data-testid="header" />
-      <div data-testid="request-method">
-        Request Method: {state.requestParams.method}
-      </div>
-      <div data-testid="request-url">URL: {state.requestParams.url}</div>
-      <Form
-        data-testid="form"
-        handleApiCall={callApi}
-      />
-      <Results data={state.data} />
+      <div data-testid="request-method">Request Method: {params?.method}</div>
+      <div data-testid="request-url">URL: {params?.url}</div>
+      <main>
+        <Form
+          data-testid="form"
+          setDataApp={setParams}
+        />
+        <Results data={data} />
+      </main>
       <Footer data-testid="footer" />
     </>
   );

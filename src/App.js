@@ -7,6 +7,7 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 import fetchApi from './fetchApi';
+import History from './components/History/History';
 
 function App() {
   const [params, setParams] = useState({});
@@ -42,6 +43,7 @@ function App() {
           setDataApp={setParams}
         />
         <Results data={data} />
+        <History history={data} />
       </main>
       <Footer data-testid="footer" />
     </>

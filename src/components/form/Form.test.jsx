@@ -6,9 +6,9 @@ import Form from './index';
 
 describe('Form', () => {
   it('submits the form and calls the handleApiCall function', async () => {
-    const handleApiCall = jest.fn();
+    const setDataApp = jest.fn();
 
-    render(<Form handleApiCall={handleApiCall} />);
+    render(<Form setDataApp={setDataApp} />);
 
     const input = screen.getByTestId('form-input');
 
@@ -22,7 +22,7 @@ describe('Form', () => {
       },
     });
 
-    expect(handleApiCall).toHaveBeenCalledWith({
+    expect(setDataApp).toHaveBeenCalledWith({
       method: 'get',
       url: 'https://pokeapi.co/api/v2/pokemon',
     });

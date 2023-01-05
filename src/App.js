@@ -9,49 +9,39 @@ import Results from './components/results';
 import fetchApi from './fetchApi';
 
 function App() {
-  const [state, setData] = useState({
-    data: null,
-    requestParams: {},
-  });
-
-  const callApi = async (requestParams) => {
-    try {
-      const results = requestParams.url
-        ? await fetchApi(requestParams.url)
-        : null;
-      
-      setData({
-        data: results,
-        requestParams,
-      });
-    } catch (e) {
-      console.log(e);
-      setData({
-        data: 'Loading',
-        requestParams,
-      });
-    }
-  };
-
+  const [params, setParams] = useState({});
+  const [data, setData] = useState(null);
   useEffect(() => {
-    if (state.requestParams) {
-      callApi(state.requestParams);
+    const callApi = async (requestParams) => {
+      try {
+        const results = requestParams.url
+          ? await fetchApi(requestParams.url)
+          : null;
+
+        setData({
+          data: results,
+        });
+      } catch (e) {
+        console.log(e);
+        setData('Loading');
+      }
+    };
+    if (params) {
+      callApi(params);
     }
-  }, [state.requestParams]);
+  }, [params]);
 
   return (
     <>
       <Header data-testid="header" />
-      <div data-testid="request-method">
-        Request Method: {state.requestParams.method}
-      </div>
-      <div data-testid="request-url">URL: {state.requestParams.url}</div>
+      <div data-testid="request-method">Request Method: {params?.method}</div>
+      <div data-testid="request-url">URL: {params?.url}</div>
       <main>
         <Form
           data-testid="form"
-          handleApiCall={callApi}
+          setDataApp={setParams}
         />
-        <Results data={state.data} />
+        <Results data={data} />
       </main>
       <Footer data-testid="footer" />
     </>

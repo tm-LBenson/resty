@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import './form.scss';
 
-function Form({ handleApiCall }) {
+function Form({ setDataApp }) {
   const [method, setMethod] = useState('get');
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ function Form({ handleApiCall }) {
       url: e.target.url.value,
       body: e.target?.json?.value,
     };
-    await handleApiCall(formData);
+    await setDataApp(formData);
   };
 
   return (

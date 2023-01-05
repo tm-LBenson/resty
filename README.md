@@ -24,7 +24,8 @@ Implement a reducer function and initial state to store and manage all applicati
 
 ## Dataflow
 
-![image](https://user-images.githubusercontent.com/105423307/210675199-3788d36c-fe53-4cdc-9f35-6f823fc50e6f.png)
+![image](https://user-images.githubusercontent.com/105423307/210900340-ee90f209-79d4-49c4-af9d-277e64ac4c15.png)
+
 
 ---
 

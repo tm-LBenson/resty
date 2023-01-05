@@ -1,4 +1,34 @@
-# Lab-28-d49
+<!-- @format -->
+
+# Lab-29-d49
+
+## Project: RESTy
+
+## Problem Domain
+
+Implement a reducer function and initial state to store and manage all application state, add the request and returned data to the history array in state after each API call, create a History component that displays the previous API calls, display the results in the Results component when a user clicks on a previous API call in the History component, use the React Testing Library framework to test the application, including mocking the API request with the msw package, and deploy the application to Netlify.
+
+## Feature 4 Application Setup
+
+- [ ] Refactor the state management in the App component to use the useReducer hook and replace any component state management with derived state from useReducer.
+- [ ] Implement a reducer function and initial state to store and manage all application state.
+- [ ] Add the request and returned data to the history array in state after each API call.
+- [ ] Create a History component that iterates over the history array in state and displays the previous API calls.
+- [ ] Display the results in the Results component when a user clicks on a previous API call in the History component.
+- [ ] Use the React Testing Library framework to test the application, including mocking the API request with the msw package.
+- [ ] Deploy the application to Netlify
+
+## Deployed
+
+[Link to Netlify](https://wondrous-brioche-c3fbac.netlify.app)
+
+## Dataflow
+
+![image](https://user-images.githubusercontent.com/105423307/210675199-3788d36c-fe53-4cdc-9f35-6f823fc50e6f.png)
+
+---
+
+## Lab-28-d49
 
 ## Project: RESTy
 
@@ -8,7 +38,7 @@
 
 ## Feature 3 Application Setup
 
-- [x] Add useEffect to App 
+- [x] Add useEffect to App
 - [x] write tests for each component
 - [x] Add new styling to application
 - [x] Set up dynamic API call using fetch
@@ -22,10 +52,9 @@
 
 ![image](https://user-images.githubusercontent.com/105423307/210675199-3788d36c-fe53-4cdc-9f35-6f823fc50e6f.png)
 
-
 ---
 
-# Lab-27-d49
+## Lab-27-d49
 
 ## Project: RESTy
 

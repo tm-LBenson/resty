@@ -10,12 +10,12 @@ Implement a reducer function and initial state to store and manage all applicati
 
 ## Feature 4 Application Setup
 
-- [ ] Refactor the state management in the App component to use the useReducer hook and replace any component state management with derived state from useReducer.
-- [ ] Implement a reducer function and initial state to store and manage all application state.
-- [ ] Add the request and returned data to the history array in state after each API call.
-- [ ] Create a History component that iterates over the history array in state and displays the previous API calls.
-- [ ] Display the results in the History component when a user clicks on a previous API call in the History component.
-- [ ] Use the React Testing Library framework to test the application, including mocking the API request with the msw package.
+- [x] Refactor the state management in the App component to use the useReducer hook and replace any component state management with derived state from useReducer.
+- [x] Implement a reducer function and initial state to store and manage all application state.
+- [x] Add the request and returned data to the history array in state after each API call.
+- [x] Create a History component that iterates over the history array in state and displays the previous API calls.
+- [x] Display the results in the History component when a user clicks on a previous API call in the History component.
+- [x] Use the React Testing Library framework to test the application, including mocking the API request with the msw package.
 - [x] Deploy the application to Netlify
 
 ## Deployed

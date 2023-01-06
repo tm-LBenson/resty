@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     const callApi = async (requestParams) => {
       try {
+        setData('Loading...');
         const results = requestParams.url
           ? await fetchApi(requestParams.url)
           : null;
@@ -24,7 +25,6 @@ function App() {
         setData({ data: results });
       } catch (e) {
         console.log(e);
-        setData('Loading');
       }
     };
     if (params) {
@@ -75,6 +75,7 @@ function App() {
             className="history"
             history={state}
             removeCall={removeCall}
+            showHistory={setData}
           />
         </section>
       </main>

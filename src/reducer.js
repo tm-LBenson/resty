@@ -1,6 +1,5 @@
 /** @format */
 
-'use strict';
 function reducer(state = { apiData: [] }, action) {
   switch (action.type) {
     case 'ADD':
@@ -28,4 +27,4 @@ function reducer(state = { apiData: [] }, action) {
   }
 }
 
-module.exports = reducer;
+export default reducer;

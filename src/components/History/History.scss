@@ -1,0 +1,22 @@
+/** @format */
+
+.api-ul {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.api-item {
+  margin: 0.1rem;
+  padding: 0.5rem;
+  border: 1px black solid;
+  list-style-type: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.523);
+}
+
+.history-section {
+}

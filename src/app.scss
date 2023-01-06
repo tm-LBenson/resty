@@ -23,6 +23,7 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    font-family: sans-serif;
   }
 }
 
@@ -31,22 +32,29 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  padding-top: 2rem;
+  border-radius: 20px;
+  height: 80%;
+  width: 90%;
+  border: #000000;
+  background-color: rgb(150, 153, 168);
 
-  section[data-testid='results-element'] {
+  .form-area {
+    height: 50%;
+  }
+  .data-area {
+    display: flex;
+    width: 100%;
+    height: 50%;
     overflow: scroll;
     padding-left: 15%;
- 
+    .results {
+    }
+
     &::-webkit-scrollbar {
       display: none;
     }
     width: 80%;
     height: 100%;
   }
-  padding-top: 2rem;
-  border-radius: 20px;
-  height: 90%;
-  width: 90%;
-  border: #000000;
-  background-color: rgb(150, 153, 168);
 }

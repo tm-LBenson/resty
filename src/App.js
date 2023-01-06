@@ -48,9 +48,8 @@ function App() {
       };
       dispatch(action);
     };
-    console.log(data);
+
     if (data.data?.results?.length > 0) {
-      console.log(data.apiData);
       addApiCall();
     }
   }, [data]);
@@ -61,15 +60,23 @@ function App() {
       <div data-testid="request-method">Request Method: {params?.method}</div>
       <div data-testid="request-url">URL: {params?.url}</div>
       <main>
-        <Form
-          data-testid="form"
-          setDataApp={setParams}
-        />
-        <Results data={data} />
-        <History
-          history={state}
-          removeCall={removeCall}
-        />
+        <section className="form-area">
+          <Form
+            data-testid="form"
+            setDataApp={setParams}
+          />
+        </section>
+        <section className="data-area">
+          <Results
+            className="results"
+            data={data}
+          />
+          <History
+            className="history"
+            history={state}
+            removeCall={removeCall}
+          />
+        </section>
       </main>
       <Footer data-testid="footer" />
     </>

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import './app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -8,10 +8,12 @@ import Form from './components/form';
 import Results from './components/results';
 import fetchApi from './fetchApi';
 import History from './components/History/History';
+import reducer from './reducer';
 
 function App() {
   const [params, setParams] = useState({});
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({ apiData: [] });
+  const [state, dispatch] = useReducer(reducer, data);
   useEffect(() => {
     const callApi = async (requestParams) => {
       try {
@@ -19,9 +21,7 @@ function App() {
           ? await fetchApi(requestParams.url)
           : null;
 
-        setData({
-          data: results,
-        });
+        setData({ data: results });
       } catch (e) {
         console.log(e);
         setData('Loading');
@@ -31,6 +31,29 @@ function App() {
       callApi(params);
     }
   }, [params]);
+
+  const removeCall = (call) => {
+    let action = {
+      type: 'REMOVE',
+      payload: call,
+    };
+    dispatch(action);
+  };
+
+  useEffect(() => {
+    const addApiCall = () => {
+      let action = {
+        type: 'ADD',
+        payload: data,
+      };
+      dispatch(action);
+    };
+    console.log(data);
+    if (data.data?.results?.length > 0) {
+      console.log(data.apiData);
+      addApiCall();
+    }
+  }, [data]);
 
   return (
     <>
@@ -43,7 +66,10 @@ function App() {
           setDataApp={setParams}
         />
         <Results data={data} />
-        <History history={data} />
+        <History
+          history={state}
+          removeCall={removeCall}
+        />
       </main>
       <Footer data-testid="footer" />
     </>

@@ -14,9 +14,9 @@ Implement a reducer function and initial state to store and manage all applicati
 - [ ] Implement a reducer function and initial state to store and manage all application state.
 - [ ] Add the request and returned data to the history array in state after each API call.
 - [ ] Create a History component that iterates over the history array in state and displays the previous API calls.
-- [ ] Display the results in the Results component when a user clicks on a previous API call in the History component.
+- [ ] Display the results in the History component when a user clicks on a previous API call in the History component.
 - [ ] Use the React Testing Library framework to test the application, including mocking the API request with the msw package.
-- [ ] Deploy the application to Netlify
+- [x] Deploy the application to Netlify
 
 ## Deployed
 
@@ -25,7 +25,6 @@ Implement a reducer function and initial state to store and manage all applicati
 ## Dataflow
 
 ![image](https://user-images.githubusercontent.com/105423307/210900340-ee90f209-79d4-49c4-af9d-277e64ac4c15.png)
-
 
 ---
 
